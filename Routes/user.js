@@ -58,6 +58,14 @@ router.post(
                 return res.status(400).json({ error: "No resume provided" });
             }
 
+            if(!req.files.photo[0].originalname.match(/\.(jpg|jpeg|png)$/)){
+                return res.status(400).json({ error: "Invalid image format" });
+            }
+
+            if(!req.files.resume[0].originalname.match(/\.(pdf)$/)){
+                return res.status(400).json({ error: "Invalid resume format" });
+            }
+
             
             const imageUpload = await uploadCloud(req.files.photo[0].buffer);
 
@@ -94,7 +102,7 @@ router.post(
                 photo,
             });
             await user.save();
-            res.send({
+            return res.send({
                 success: true,
                 message: "Application submitted successfully",
             
