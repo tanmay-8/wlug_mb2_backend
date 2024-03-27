@@ -62,13 +62,13 @@ router.post(
             const imageUpload = await uploadCloud(req.files.photo[0].buffer);
 
             if(!imageUpload.success){
-                return res.status(500).json({ error: "Ensure that image size is less than 1 MB" });
+                return res.status(500).json({ error: "Ensure that image size is less than 2 MB" });
             }
 
             const resumeUpload = await uploadCloud(req.files.resume[0].buffer);
 
             if(!resumeUpload.success){
-                return res.status(500).json({ error: "Ensure that resume size is less than 1 MB" });
+                return res.status(500).json({ error: "Ensure that resume size is less than 2 MB" });
             }
 
             const {
