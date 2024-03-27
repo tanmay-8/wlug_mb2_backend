@@ -22,11 +22,11 @@ const uploadCloud = async (buffer) => {
                 .end(buffer);
         });
         console.log(result)
-        return { sucess: true, link: result.secure_url };
+        return { success: true, link: result.secure_url };
     } catch (error) {
         console.log("error in cloudinary upload")
         console.log(error);
-        return { sucess: false, link: "" };
+        return { success: false, link: "" };
     }
 };
 

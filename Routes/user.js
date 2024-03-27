@@ -58,10 +58,18 @@ router.post(
                 return res.status(400).json({ error: "No resume provided" });
             }
 
-
+            
             const imageUpload = await uploadCloud(req.files.photo[0].buffer);
 
+            if(!imageUpload.success){
+                return res.status(500).json({ error: "Ensure that image size is less than 1 MB" });
+            }
+
             const resumeUpload = await uploadCloud(req.files.resume[0].buffer);
+
+            if(!resumeUpload.success){
+                return res.status(500).json({ error: "Ensure that resume size is less than 1 MB" });
+            }
 
             const {
                 fullName,
@@ -94,7 +102,7 @@ router.post(
         } catch (error) {
             console.error("internal server error", error);
             res.status(500).json({
-                error: "Ensure that photo and resume file size is less than 1MB",
+                error: "Something went wrong. Please try again later.",
                 success: false,
             });
         }
