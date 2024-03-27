@@ -94,7 +94,7 @@ router.post(
         } catch (error) {
             console.error("internal server error", error);
             res.status(500).json({
-                error: "An error occurred while uploading the image",
+                error: "Ensure that photo and resume file size is less than 1MB",
                 success: false,
             });
         }
