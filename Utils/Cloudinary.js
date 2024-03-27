@@ -12,7 +12,9 @@ const uploadCloud = async (buffer) => {
     try {
         const result = await new Promise((resolve) => {
             cloudinary.v2.uploader
-                .upload_stream((error, uploadResult) => {
+                .upload_stream({
+                    folder:"wlug_MB2"
+                },(error, uploadResult) => {
                     if(error){
                         console.log(error);
                         console.log("error in cloudinary upload")
