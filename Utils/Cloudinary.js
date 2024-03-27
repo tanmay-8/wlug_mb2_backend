@@ -14,7 +14,7 @@ const uploadCloud = async (buffer) => {
             cloudinary.v2.uploader
                 .upload_stream({
                     folder:"wlug_MB2",
-                    resource_type:"raw"
+                    resource_type:"auto"
                 },(error, uploadResult) => {
                     if(error){
                         console.log(error);
