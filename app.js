@@ -12,6 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/user/", require("./Routes/user"));
 app.get("/", (req, res) => {
+    console.log("Hello World");
     res.send("Hello World");
 });
 
