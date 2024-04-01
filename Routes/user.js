@@ -108,6 +108,7 @@ router.post(
             
             });
         } catch (error) {
+            console.log(error)
             console.error("internal server error", error);
             res.status(500).json({
                 error: "Something went wrong. Please try again later.",
